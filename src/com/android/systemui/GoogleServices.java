@@ -10,6 +10,7 @@ import android.provider.Settings;
 import com.android.systemui.SysUiServiceProvider;
 import com.android.systemui.VendorServices;
 import com.android.systemui.statusbar.phone.StatusBar;
+import com.google.android.systemui.dreamliner.DockObserver;
 import com.google.android.systemui.elmyra.ElmyraContext;
 import com.google.android.systemui.elmyra.ElmyraService;
 import com.google.android.systemui.elmyra.ServiceConfigurationGoogle;
@@ -57,6 +58,11 @@ public class GoogleServices extends VendorServices {
         if (new ElmyraContext(mContext).isAvailable()) {
             addService(new ElmyraService(mContext, new ServiceConfigurationGoogle(mContext)));
         }
+        // Dreamliner service
+        // TODO: do not start this service for every Pixel, check for a
+        // property or something.
+        addService(new DockObserver(mContext));
+
         // Intent for applications that get uninstalled
         IntentFilter filter = new IntentFilter();
         filter.addAction(Intent.ACTION_PACKAGE_REMOVED);
