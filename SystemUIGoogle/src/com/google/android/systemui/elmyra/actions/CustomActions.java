@@ -97,6 +97,11 @@ public class CustomActions extends Action {
             case 12: // Ringer modes
                 // Utils.toggleRingerModes(getContext());
                 break;
+            case 13: // Partial Screenshot
+                if (isScreenOn) {
+                    Utils.takeScreenshot(false);
+                }
+                break;
         }
     }
 
