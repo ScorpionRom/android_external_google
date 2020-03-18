@@ -81,26 +81,21 @@ public class CustomActions extends Action {
                     Utils.takeScreenshot(true);
                 }
                 break;
-            case 9: // Partial Screenshot
+            case 9: // Notification panel
                 if (isScreenOn) {
-                    Utils.takeScreenshot(false);
+                    Utils.toggleNotifications();
                 }
                 break;
-            case 10: // Notification panel
+            case 10: // QS panel
                 if (isScreenOn) {
-                    // Utils.toggleNotifications();
+                    Utils.toggleQsPanel();
                 }
                 break;
-            case 11: // QS panel
-                if (isScreenOn) {
-                    // Utils.toggleQsPanel();
-                }
+            case 11: // Clear notifications
+                Utils.clearAllNotifications();
                 break;
-            case 12: // Clear notifications
-                // Utils.clearAllNotifications();
-                break;
-            case 13: // Ringer modes
-                // Utils.toggleRingerModes(getContext());
+            case 12: // Ringer modes
+                Utils.toggleRingerModes(getContext());
                 break;
         }
     }
