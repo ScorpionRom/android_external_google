@@ -102,6 +102,11 @@ public class CustomActions extends Action {
                     Utils.killForegroundApp();
                 }
                 break;
+            case 14: // Partial Screenshot
+                if (isScreenOn) {
+                    ActionUtils.takeScreenshot(false);
+                }
+                break;
         }
     }
 
