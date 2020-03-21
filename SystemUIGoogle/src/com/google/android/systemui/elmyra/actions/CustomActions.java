@@ -9,6 +9,7 @@ import android.os.UserHandle;
 import android.provider.MediaStore;
 import android.provider.Settings;
 import android.text.TextUtils;
+import android.view.KeyEvent;
 
 import com.android.internal.util.custom.Utils;
 import com.android.systemui.Dependency;
@@ -106,6 +107,12 @@ public class CustomActions extends Action {
                 if (isScreenOn) {
                     Utils.takeScreenshot(false);
                 }
+                break;
+            case 15: // Skip song
+                Utils.sendSystemKeyToStatusBar(KeyEvent.KEYCODE_MEDIA_NEXT);
+                break;
+            case 16: // Previous song
+                Utils.sendSystemKeyToStatusBar(KeyEvent.KEYCODE_MEDIA_PREVIOUS);
                 break;
         }
     }
